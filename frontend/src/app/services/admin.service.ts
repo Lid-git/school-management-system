@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { User } from './auth';
+import { environment } from '../../environments/environment';
 
 export interface Grade {
   _id: string;
@@ -19,7 +20,7 @@ export interface Subject {
   providedIn: 'root'
 })
 export class AdminService {
-  private apiUrl = 'https://school-management-system-oyii.onrender.com/api';
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) { }
 

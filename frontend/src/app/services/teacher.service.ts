@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './auth';
 import { Subject } from './admin.service';
+import { environment } from '../../environments/environment';
 
 export interface Mark {
     _id: string;
@@ -18,7 +19,7 @@ export interface Mark {
   providedIn: 'root'
 })
 export class TeacherService {
-  private apiUrl = 'https://school-management-system-oyii.onrender.com/api/teacher';
+  private apiUrl = `${environment.apiUrl}/teacher`;
 
   constructor(private http: HttpClient) { }
 

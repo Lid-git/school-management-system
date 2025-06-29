@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Mark } from './teacher.service';
 import { User } from './auth';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
-  private apiUrl = 'https://school-management-system-oyii.onrender.com/api/student';
+  private apiUrl = `${environment.apiUrl}/student`;
 
   constructor(private http: HttpClient) { }
 
