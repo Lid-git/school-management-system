@@ -1,0 +1,70 @@
+<mat-toolbar color="primary">
+  <span *ngIf="profile$ | async as profile">Welcome, {{ profile.name }}</span>
+  <span class="toolbar-spacer"></span>
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="content">
+  <mat-card class="profile-card" *ngIf="profile$ | async as profile">
+    <mat-card-header>
+      <mat-card-title>My Profile</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Name:</strong> {{ profile.name }}</p>
+      <p><strong>Email:</strong> {{ profile.email }}</p>
+      <p><strong>Grade:</strong> {{ profile.grade ? profile.grade.name : 'Not Assigned' }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>My Marks</mat-card-title>
+      <mat-card-subtitle>Your performance across all subjects</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngIf="!isLoading; else loading">
+        <table mat-table [dataSource]="(marks$ | async) || []" class="mat-elevation-z8">
+
+          <!-- Subject Column -->
+          <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef> Subject </th>
+            <td mat-cell *matCellDef="let mark"> {{mark.subject.name}} </td>
+          </ng-container>
+
+          <!-- Marks Column -->
+          <ng-container matColumnDef="marks">
+            <th mat-header-cell *matHeaderCellDef> Marks </th>
+            <td mat-cell *matCellDef="let mark"> {{mark.marks}}% </td>
+          </ng-container>
+
+          <!-- Teacher Column -->
+          <ng-container matColumnDef="teacher">
+            <th mat-header-cell *matHeaderCellDef> Teacher </th>
+            <td mat-cell *matCellDef="let mark"> {{mark.teacher.name}} </td>
+          </ng-container>
+          
+          <!-- Last Updated Column -->
+          <ng-container matColumnDef="updatedAt">
+            <th mat-header-cell *matHeaderCellDef> Last Updated </th>
+            <td mat-cell *matCellDef="let mark"> {{mark.updatedAt | date:'short'}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No marks assigned yet.</td>
+          </tr>
+        </table>
+      </div>
+
+      <ng-template #loading>
+        <div class="spinner-container">
+          <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+        </div>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>

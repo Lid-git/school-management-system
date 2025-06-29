@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Assign Mark to {{ student.name }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="markForm" class="mark-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Subject</mat-label>
+      <mat-select formControlName="subjectId" required>
+        <mat-option *ngFor="let subject of (subjects$ | async)" [value]="subject._id">
+          {{ subject.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Marks</mat-label>
+      <input matInput formControlName="marks" type="number" min="0" max="100" required>
+      <mat-error *ngIf="markForm.get('marks')?.hasError('required')">Marks are required.</mat-error>
+      <mat-error *ngIf="markForm.get('marks')?.hasError('min') || markForm.get('marks')?.hasError('max')">
+        Marks must be between 0 and 100.
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="markForm.invalid">Assign</button>
+</mat-dialog-actions>

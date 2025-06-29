@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <span>Teacher Dashboard</span>
+  <span class="toolbar-spacer"></span>
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="dashboard-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/teacher/students" routerLinkActive="active-list-item">
+        <mat-icon mat-list-icon>groups</mat-icon>
+        <span mat-line>My Students</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

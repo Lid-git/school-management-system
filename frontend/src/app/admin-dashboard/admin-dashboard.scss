@@ -1,0 +1,19 @@
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.dashboard-container {
+  height: calc(100vh - 64px); /* Full height minus toolbar */
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav-content {
+  padding: 20px;
+}
+
+.active-list-item {
+  background-color: rgba(0, 0, 0, 0.04);
+}
