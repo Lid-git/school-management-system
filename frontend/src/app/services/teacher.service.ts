@@ -18,7 +18,7 @@ export interface Mark {
   providedIn: 'root'
 })
 export class TeacherService {
-  private apiUrl = 'http://localhost:5000/api/teacher';
+  private apiUrl = 'https://school-management-system-oyii.onrender.com/api/teacher';
 
   constructor(private http: HttpClient) { }
 

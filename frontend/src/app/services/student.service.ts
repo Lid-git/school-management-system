@@ -8,7 +8,7 @@ import { User } from './auth';
   providedIn: 'root'
 })
 export class StudentService {
-  private apiUrl = 'http://localhost:5000/api/student';
+  private apiUrl = 'https://school-management-system-oyii.onrender.com/api/student';
 
   constructor(private http: HttpClient) { }
 

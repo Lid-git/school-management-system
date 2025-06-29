@@ -19,7 +19,7 @@ export interface Subject {
   providedIn: 'root'
 })
 export class AdminService {
-  private apiUrl = 'http://localhost:5000/api';
+  private apiUrl = 'https://school-management-system-oyii.onrender.com/api';
 
   constructor(private http: HttpClient) { }
 

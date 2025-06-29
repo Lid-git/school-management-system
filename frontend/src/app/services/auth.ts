@@ -22,7 +22,7 @@ export interface User {
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000/api/users';
+  private apiUrl = 'https://school-management-system-oyii.onrender.com/api/users';
   
   private userSubject = new BehaviorSubject<User | null>(null);
   public user$ = this.userSubject.asObservable();
