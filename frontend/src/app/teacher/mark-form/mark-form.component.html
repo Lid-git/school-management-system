@@ -1,7 +1,7 @@
 <h2 mat-dialog-title>Assign Mark to {{ student.name }}</h2>
 <mat-dialog-content>
   <form [formGroup]="markForm" class="mark-form">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label>Subject</mat-label>
       <mat-select formControlName="subjectId" required>
         <mat-option *ngFor="let subject of (subjects$ | async)" [value]="subject._id">
@@ -10,7 +10,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label>Marks</mat-label>
       <input matInput formControlName="marks" type="number" min="0" max="100" required>
       <mat-error *ngIf="markForm.get('marks')?.hasError('required')">Marks are required.</mat-error>

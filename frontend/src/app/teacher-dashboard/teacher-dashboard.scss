@@ -1,19 +1,44 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  .toolbar-icon {
+    margin-right: 12px;
+  }
+}
+
 .toolbar-spacer {
   flex: 1 1 auto;
 }
 
 .dashboard-container {
-  height: calc(100vh - 64px);
+  flex-grow: 1;
+  background-color: #f4f7f6;
 }
 
 .sidenav {
-  width: 200px;
+  width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+
+  .mat-mdc-list-item {
+    margin: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .mat-mdc-list-item .mat-icon {
+    color: rgba(0, 0, 0, 0.6);
+  }
 }
 
 .sidenav-content {
-  padding: 20px;
-}
-
-.active-list-item {
-  background-color: rgba(0, 0, 0, 0.04);
+  padding: 24px;
 }

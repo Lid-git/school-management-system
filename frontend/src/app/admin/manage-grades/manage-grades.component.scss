@@ -1,17 +1,12 @@
-table {
-  width: 100%;
+.table-container {
+  overflow: auto;
 }
 
-.spinner-container {
+.header-actions button {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
 }
 
-mat-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+.header-actions mat-icon {
+  margin-right: 8px;
 }
