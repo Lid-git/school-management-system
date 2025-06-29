@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon'; // <-- ADD THIS
 
 import { AuthService } from '../services/auth';
 
@@ -23,6 +24,7 @@ import { AuthService } from '../services/auth';
     MatInputModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    MatIconModule, // <-- AND THIS
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'] // Use 'styleUrls' (plural)
@@ -38,8 +40,8 @@ export class LoginComponent {
     private router: Router
   ) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      email: ['admin@gmail.com', [Validators.required, Validators.email]],
+      password: ['123456', [Validators.required]],
     });
   }
 
